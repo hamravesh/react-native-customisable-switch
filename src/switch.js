@@ -63,7 +63,7 @@ export default class Switch extends Component {
 
   constructor(props, context) {
     super(props, context);
-    this.padding = props.padding ? 5 : 0;
+    this.padding = props.padding ? 4 : 0;
     this.transformValue = (props.switchWidth - props.buttonWidth - this.padding);
     this.state = {
       transformValue: new Animated.Value(props.value ? this.transformValue : this.padding),
@@ -173,13 +173,27 @@ render() {
             }}
           >
             <View style={styles.animatedContainer}>
-              <View style={styles.textContainer}>
-                <Text style={{ color: activeTextColor, fontSize }}>
+              <View style={[styles.textContainer, { marginLeft: 6 }]}>
+                <Text
+                  style={{
+                    color: activeTextColor,
+                    fontSize: 12,
+                    flex: 1,
+                    textAlign: 'center',
+                  }}
+                >
                   {value ? activeText : ''}
                 </Text>
               </View>
-              <View style={styles.textContainer}>
-                <Text style={{ color: inactiveTextColor, fontSize }}>
+              <View style={[styles.textContainer, { marginRight: 6 }]}>
+                <Text
+                  style={{
+                    color: inactiveTextColor,
+                    fontSize: 12,
+                    flex: 1,
+                    textAlign: 'center',
+                  }}
+                >
                   {value ? '' : inactiveText}
                 </Text>
               </View>
